@@ -45,7 +45,10 @@ def seed_admin():
         db.commit()
         db.refresh(new_admin)
         print("Admin user seeded successfully!")
-
+@app.get("/")
+def root():
+    return {"message": "User Authentication API is running"}
+    
 @app.post("/api/auth/register", response_model=schemas.UserOut, status_code=status.HTTP_201_CREATED)
 def register(user_in: schemas.UserCreate, db: Session = Depends(get_db)):
     # Check if username exists
