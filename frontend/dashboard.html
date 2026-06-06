@@ -141,6 +141,28 @@
                 </div>
             </div>
         </div>
+        <!-- Daily Tasks -->
+<div class="glass-panel p-6 rounded-2xl mt-8">
+    <h3 class="text-lg font-bold text-white mb-4">Daily Tasks</h3>
+
+    <div class="flex gap-2 mb-4">
+        <input
+            id="taskTitle"
+            type="text"
+            placeholder="Enter a task"
+            class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+        >
+
+        <button
+            onclick="addTask()"
+            class="bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-lg"
+        >
+            Add Task
+        </button>
+    </div>
+
+    <div id="taskList" class="space-y-2"></div>
+</div>
 
     </main>
 
