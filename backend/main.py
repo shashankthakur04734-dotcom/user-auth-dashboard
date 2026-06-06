@@ -10,13 +10,13 @@ description=task.description,
 user_id=current_user.id
 )
 
-```
+
 db.add(new_task)
 db.commit()
 db.refresh(new_task)
 
 return new_task
-```
+
 
 @app.get("/api/tasks", response_model=List[schemas.TaskOut])
 def get_tasks(
@@ -33,18 +33,6 @@ task_id: int,
 db: Session = Depends(get_db),
 current_user: models.User = Depends(auth.get_current_user)
 ):
-task = db.query(models.Task).filter(
-models.Task.id == task_id,
-models.Task.user_id == current_user.id
-).first()
-
-```
-if not task:
-    raise HTTPException(
-        status_code=404,
-        detail="Task not found"
-    )
-
 task.is_completed = True
 db.commit()
 
