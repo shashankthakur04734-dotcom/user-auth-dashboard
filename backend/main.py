@@ -131,7 +131,7 @@ def delete_user(user_id: int, db: Session = Depends(get_db), current_user: model
     db.delete(user_to_delete)
     db.commit()
     return {"detail": f"User with ID {user_id} deleted successfully."}
-    @app.post("/api/tasks", response_model=schemas.TaskOut)
+@app.post("/api/tasks", response_model=schemas.TaskOut)
 def create_task(
     task: schemas.TaskCreate,
     db: Session = Depends(get_db),
